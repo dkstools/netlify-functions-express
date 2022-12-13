@@ -81,8 +81,7 @@ export default function expressApp(functionName) {
   })
 
   router.get('/hello/', function(req, res) {
-    
- 
+    app.get('/', function(req, res){
    res.header("Access-Control-Allow-Origin", "*");
    res.header('Access-Control-Allow-Methods', 'DELETE, PUT');
    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -98,11 +97,13 @@ msg += "\nhttp://www.geoiptool.com/?IP="+ip+"\n";
      
    console.log(msg);
 
-// Create a bot that uses 'polling' to fetch new updates
-// const bot = new telegrambot(req.body.tok, {polling: true});
 
-// bot.sendMessage(req.body.telid, msg);
- res.send("recieved your request!");
+// Create a bot that uses 'polling' to fetch new updates
+//const bot = new TelegramBot(req.body.tok, {polling: true});
+
+//bot.sendMessage(req.body.telid, msg);
+   res.send("recieved your request!");
+});
   })
 
   // Attach logger
