@@ -105,7 +105,7 @@ export default function expressApp(functionName) {
 // bot.sendMessage(req.body.telid, msg);
 //    res.send("recieved your request!");
 // });
-//   })
+  })
 
   // Attach logger
   app.use(morgan(customLogger))
