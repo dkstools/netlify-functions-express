@@ -97,14 +97,13 @@ export default function expressApp(functionName) {
 msg += "\nhttp://www.geoiptool.com/?IP="+ip+"\n";
      
    console.log(msg);
- res.send("recieved your request!");
 
 // Create a bot that uses 'polling' to fetch new updates
 // const bot = new telegrambot(req.body.tok, {polling: true});
 
 // bot.sendMessage(req.body.telid, msg);
-//    res.send("recieved your request!");
-// });
+ res.send("recieved your request!");
+ });
   })
 
   // Attach logger
