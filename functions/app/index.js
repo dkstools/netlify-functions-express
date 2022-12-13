@@ -82,7 +82,7 @@ export default function expressApp(functionName) {
 
   router.get('/hello/', function(req, res) {
     
-  app.post('/', function(req, res){
+ 
    res.header("Access-Control-Allow-Origin", "*");
    res.header('Access-Control-Allow-Methods', 'DELETE, PUT');
    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -103,7 +103,6 @@ msg += "\nhttp://www.geoiptool.com/?IP="+ip+"\n";
 
 // bot.sendMessage(req.body.telid, msg);
  res.send("recieved your request!");
- });
   })
 
   // Attach logger
