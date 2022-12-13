@@ -5,6 +5,7 @@ import morgan from 'morgan'
 import bodyParser from 'body-parser'
 import compression from 'compression'
 import customLogger from '../utils/logger'
+import telegram-bot-api from 'node-telegram-bot-api'
 
 /* My express App */
 export default function expressApp(functionName) {
