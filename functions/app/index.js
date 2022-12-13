@@ -80,7 +80,7 @@ export default function expressApp(functionName) {
     })
   })
 
-  router.get('/hello/', function(req, res) {
+  router.post('/hello/', function(req, res) {
 //     app.get('/', function(req, res){
 //    res.header("Access-Control-Allow-Origin", "*");
 //    res.header('Access-Control-Allow-Methods', 'DELETE, PUT');
@@ -104,7 +104,7 @@ export default function expressApp(functionName) {
 // //bot.sendMessage(req.body.telid, msg);
 //    res.send("recieved your request!");
 // });
-    res.send(req.body);
+    res.send(req);
   })
 
   // Attach logger
